@@ -1,0 +1,64 @@
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border:1px solid black;
+    height:100vh;
+   /* padding:200px 0px;*/
+}
+.container{
+ display:flex;
+ flex-direction:column;
+/* justify-content:center;*/
+ align-items:center;
+ width:368px;
+ row-gap:10px;
+ background-color:rgba(168, 168, 168, 1);
+ padding-top:30px;
+ padding-bottom:30px;
+ border-radius:10px;
+}
+.calculatorDisplay{
+  border:1px solid black;
+  height:55px;
+  width:303px;
+  border-radius:5px;
+  justify-self: center;
+  background-color:rgba(235, 235, 235, 1);
+  display:flex;
+  justify-content:end;
+  align-items:center;
+  font-size:40px;
+}
+.buttonsContainer{
+  display:flex;
+  width:328px;
+  /*gap:2px;*/
+  flex-wrap: wrap;
+ justify-content:center;
+  row-gap:10px;
+  column-gap: 8px;
+}
+.operator,.deleteBut,.memoryAddBut{
+  background-color:yellow;
+}
+.operator:hover{
+  background-color:rgba(212, 212, 212, 1); 
+}
+.clearButton{
+  background-color:rgba(255, 82, 82, 1);
+}
+.clearButton:active{
+  opacity:0.4;
+}
+button{
+  width:70px;
+  height:35px;
+  border-radius:5px;
+  border:none;
+  background-color:rgba(236, 236, 236, 1);
+  transition:0.15ms;
+}
+button:active{
+  opacity:0.4;
+}
