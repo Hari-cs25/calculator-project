@@ -2,9 +2,7 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    border:1px solid black;
     height:100vh;
-   /* padding:200px 0px;*/
 }
 .container{
  display:flex;

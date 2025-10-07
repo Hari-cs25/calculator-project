@@ -2,11 +2,26 @@ let num1;
 let num2;
 let operator;
 let array=[];
-let wishList ='+-×/';
+let wishList = '+-×/';
+let numericList = '0123456789.';
 let trigger;
 let operatorPushCount=0;
 let temp;
 let trashArr=[];
+
+const memoryClearBut=document.querySelector('.memoryClearBut');
+const displayRef=document.querySelector('.calculatorDisplay');
+const buttons = document.querySelectorAll('.dig');
+
+document.addEventListener('keydown' , show);
+function show(event){
+ if(wishList.includes(event.key)||numericList.includes(event.key)){
+    appendNumber(event.key);
+ }
+ else if(event.key === 'Enter'){
+    equal();
+ }
+}
 
 function add(num1,num2){
   return num1+num2;
@@ -37,10 +52,6 @@ function operate(num1,operator,num2){
   }
 }
 
-const displayRef=document.querySelector('.calculatorDisplay');
-
-const buttons = document.querySelectorAll('.dig');
-
 for (let prop of buttons) {
     prop.addEventListener('click' , ()=>{
       appendNumber(prop.textContent)});
@@ -62,6 +73,7 @@ function appendNumber(num){
     }
      else{
        displayRef.textContent+=num;
+       // PUTTING NUMMBER INTO THE STACK
        array.push(num);
      }
      trigger=0;
@@ -93,7 +105,7 @@ else{
     }
     else{
        array.push(num);
-       console.log(array);
+      // console.log(array);
        displayRef.textContent+=num;
     }
    }
@@ -110,21 +122,22 @@ clearBut.addEventListener('click' , ()=>{displayRef.textContent=''
 });
 
 const equalButton =document.querySelector('.equels');
-equalButton.addEventListener('click' , ()=>{
+equalButton.addEventListener('click' , equal);
+function equal(){
   trigger=1;
   temp=doComputation();
   if (typeof(temp) == 'string') {
-  displayRef.textContent = temp;
-  array = [];
-  operatorPushCount = 0;
-  trigger = 1;
+      displayRef.textContent = temp;
+      array = [];
+      operatorPushCount = 0;
+      trigger = 1;
 }
-else{
-  array.push(temp);
-  displayRef.textContent=temp;
-  console.log('array aftre equal(): ',array);
+  else{
+      array.push(temp);
+      displayRef.textContent=temp;
+      console.log('array aftre equal(): ',array);
 }
-});
+}
 
 function doComputation(){
   let secondHalf='';
@@ -175,4 +188,4 @@ function deleteOneChar(){
 }
 
 const backBut=document.querySelector('.memoryAddBut');
-backBut.addEventListener('click' , )
+//backBut.addEventListener('click' , )
